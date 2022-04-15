@@ -16,7 +16,7 @@ public class Main {
         Buscador busc = new Buscador();
         
         long inicio = System.currentTimeMillis();
-        busc.pesquisaNome("CRISTO", "lista");
+        busc.pesquisaNome("Margaret Lane", "lista");
         while(Thread.activeCount()>1){
             
         }

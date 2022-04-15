@@ -38,18 +38,14 @@ public class Nomes extends Thread{
         } catch (IOException ex) {
             Logger.getLogger(Nomes.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-            int contador = 0;
-            for (String linha : listaLinhas) {
-                String[] palavras = linha.split(" ");
-                contador++;
-                for (int i = 0; i < palavras.length; i++) {
-                   
-                    if (palavras[i].equalsIgnoreCase(nome)) {
-                    System.out.println("Encontrado no arquivo: "+a.getNome()+" na linha: "+contador);
-                    }
-                }
-            }
+            BuscaNomes b1 = new BuscaNomes(listaLinhas.subList(0, listaLinhas.size()/4), nome, 0, a);
+            BuscaNomes b2 = new BuscaNomes(listaLinhas.subList(listaLinhas.size()/4, listaLinhas.size()/2), nome, listaLinhas.size()/4, a);
+            BuscaNomes b3 = new BuscaNomes(listaLinhas.subList(listaLinhas.size()/2, listaLinhas.size()*3/4), nome, listaLinhas.size()/2, a);
+            BuscaNomes b4 = new BuscaNomes(listaLinhas.subList(listaLinhas.size()*3/4, listaLinhas.size()), nome, listaLinhas.size()*3/4, a);
+            new Thread(b1).start();
+            new Thread(b2).start();
+            new Thread(b3).start();
+            new Thread(b4).start();
         }
         
     }
