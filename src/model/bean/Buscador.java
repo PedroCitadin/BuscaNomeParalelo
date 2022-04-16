@@ -30,7 +30,7 @@ public class Buscador {
         this.listaArquivos = listaArquivos;
     }
     
-    public void pesquisaNome(String nome, String diretorio) throws IOException, InterruptedException{
+    public void pesquisaNome(String nome, File diretorio) throws IOException, InterruptedException{
         
         listaArquivos = Arquivo.pegaTodosOsArquivos(diretorio);
         if (listaArquivos.size()<=4) {
