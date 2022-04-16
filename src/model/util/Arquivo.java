@@ -155,8 +155,8 @@ public class Arquivo {
         }
         return c;
     }
-    public static List<File> pegaTodosOsArquivos(String a){
-        File f = new File(a);
+    public static List<File> pegaTodosOsArquivos(File a){
+        File f = a;
         List<File> f3 = new ArrayList();
         for (File f2: f.listFiles()) {
             if(f2.isFile()){
