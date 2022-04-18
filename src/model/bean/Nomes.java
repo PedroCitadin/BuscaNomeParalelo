@@ -31,6 +31,7 @@ public class Nomes extends Thread{
     
    
     public void run(){
+        ///aqui os arquivos são lidos um por um, cada arquivo tem suas linhas divididas por 4, assim cada grupo de linhas é processado por uma thread do objeto BuscaNomes
          for (Arquivo a: arc) {
             List<String> listaLinhas =null;
         try {
@@ -38,6 +39,7 @@ public class Nomes extends Thread{
         } catch (IOException ex) {
             Logger.getLogger(Nomes.class.getName()).log(Level.SEVERE, null, ex);
         }
+            ////separação das linhas dos arquivos em 4, cada thread é responsavel por 1/4 de cada arquivo  
             BuscaNomes b1 = new BuscaNomes(listaLinhas.subList(0, listaLinhas.size()/4), nome, 0, a);
             BuscaNomes b2 = new BuscaNomes(listaLinhas.subList(listaLinhas.size()/4, listaLinhas.size()/2), nome, listaLinhas.size()/4, a);
             BuscaNomes b3 = new BuscaNomes(listaLinhas.subList(listaLinhas.size()/2, listaLinhas.size()*3/4), nome, listaLinhas.size()/2, a);
