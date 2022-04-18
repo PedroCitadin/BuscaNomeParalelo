@@ -20,6 +20,8 @@ import sun.misc.IOUtils;
  *
  * @author Pedro Citadin Coelho
  */
+
+//Classe arquivo serve para manipular os arquivos e os diretórios
 public class Arquivo {
 
     private String nome;
