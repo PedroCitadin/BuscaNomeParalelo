@@ -38,6 +38,8 @@ public class BuscaNomes extends Thread{
     
     
      public void run(){
+         ///aqui é feita a verificação das linhas recebidas do Objeto Nomes, o contador representa a linha atual, caso o nome presente na linha selecionada seja igual o nome buscado
+         ///o sistema solta uma mensagem no console informando o nome do arquivo atual e a linha
          for (String l: linhas) {
              contador++;
              if (l.equalsIgnoreCase(nome)) {
