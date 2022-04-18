@@ -29,11 +29,12 @@ public class Buscador {
     public Buscador(List<File> listaArquivos) {
         this.listaArquivos = listaArquivos;
     }
-    
+    /// metodo para busca o nome
     public void pesquisaNome(String nome, File diretorio) throws IOException, InterruptedException{
-        
+        //lista de arquivos do diretório selecionado
         listaArquivos = Arquivo.pegaTodosOsArquivos(diretorio);
         if (listaArquivos.size()<=4) {
+            ///caso existam até 4 arquivos no diretório, cada thread fica responsavel por um arquivo
             for (File f : listaArquivos) {
             Nomes n = new Nomes(new Arquivo(f), nome);
             new Thread(n).start();
@@ -42,6 +43,7 @@ public class Buscador {
             
             }
         }else{
+             ///caso existam mais de 4 arquivos no diretório, os arquivos são separados em até 4 listas, cada thread fica responsável por uma lista de arquivos, eles são separados uniformemente
             int aux=0;
             List<Arquivo> listaArquivos1 = new ArrayList<Arquivo>();
             List<Arquivo> listaArquivos2 = new ArrayList<Arquivo>();
@@ -64,7 +66,7 @@ public class Buscador {
                     aux = 0;
                 }
             }
-            
+            ///as 4 threads com listas de arquivos são iniciadas, o processo está no arquivo Nomes
             Nomes n1 = new Nomes(listaArquivos1, nome);
             new Thread(n1).start();
            
